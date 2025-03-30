@@ -302,7 +302,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,                   Button5,        sigdwmblocks,   {.i = 5} },
 	{ ClkStatusText,        ShiftMask,           Button1,        sigdwmblocks,   {.i = 6} },
 #endif
-	{ ClkStatusText,        ShiftMask,           Button3,        spawn,          SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h") },
+	{ ClkStatusText,        ShiftMask,           Button3,        spawn,          SHCMD(TERMINAL " -e vim ~/.local/src/dwmblocks/config.h") },
 	{ ClkClientWin,         MODKEY,              Button1,        moveorplace,    {.i = 1} },
 	{ ClkClientWin,         MODKEY,              Button2,        defaultgaps,    {0} },
 	{ ClkClientWin,         MODKEY,              Button3,        resizemouse,    {0} },
