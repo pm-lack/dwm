@@ -155,13 +155,9 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+R\fP \(en htop (task manager, system monitor that R*dditors use to look cool)
 .ITEM
-\f(CWMod+e\fP \(en neomutt (email) \(en Must be first configured by running \f(CWmw add\fP.
-.ITEM
-\f(CWMod+E\fP \(en abook (contacts, addressbook, emails)
-.ITEM
 \f(CWMod+m\fP \(en ncmpcpp (music player)
 .ITEM
-\f(CWMod+w\fP \(en Web browser (LibreWolf by default)
+\f(CWMod+w\fP \(en Web browser (Zen by default)
 .ITEM
 \f(CWMod+W\fP \(en nmtui (for connecting to wireless internet)
 .ITEM
