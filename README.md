@@ -3,7 +3,7 @@
 
 # Credit
 - [placemouse](https://github.com/bakkeby/patches/wiki/placemouse) 
-- [focusfollowmouse](https://github.com/bakkeby/patches/wiki/focusfollowmouse) dwm.c.TEST (UNTESTED)
+- [focusfollowmouse](https://github.com/bakkeby/patches/wiki/focusfollowmouse) (some people find this controversial, so if you don't want this replace dwm.c with dwm.c.bak)
 
  [Courtesys to Luke Smith](https://github.com/lukesmithxyz/dwm)
 - [statuscmd](https://dwm.suckless.org/patches/statuscmd/) 
