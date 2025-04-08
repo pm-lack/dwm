@@ -1,0 +1,221 @@
+.de LI
+.LIST
+.SHIFT_LIST 10p
+..
+.PARA_SPACE 1m
+.TITLE "\s+(10pm-larbs guide\s0"
+.DOCTYPE    DEFAULT
+.COPYSTYLE  FINAL
+.PRINTSTYLE TYPESET
+.PT_SIZE 12
+.START
+Use vim keys (\f(CWh/j/k/l\fP) to navigate this document.
+Pressing \f(CWs\fP will fit it to window width (\f(CWa\fP to revert).
+\f(CWK\fP and \f(CWJ\fP zoom in and out.
+\f(CWSuper+f\fP to toggle fullscreen.
+\f(CWq\fP to quit.
+\f(CW/\fP to search for text.
+(These are general binds set for \fBzathura\fP, the pdf reader.)
+.LI
+.ITEM
+\f(CWMod+F1\fP will show this document at any time.
+.ITEM
+By \f(CWMod\fP, I mean the Super Key, usually known as "the Windows Key."
+.LIST OFF
+.PP
+FAQs are at the end of this document.
+.HEADING 2 "General keyboard changes"
+.LI
+.ITEM
+Capslock is a useless key in high quality space.
+It's now remapped.
+If you press it alone, it will function as escape, making vimcraft much more natural,
+but you can also hold it down and it will act as another Windows/super/mod key.
+.ITEM
+The menu button (usually between the right Alt and Ctrl) is an alternative Super/Mod button.
+This is to make one-handing on laptops easier.
+.LIST OFF
+.PP
+If you'd like to change any of these keyboard changes, you need only open and change the \f(CWremaps\fP script.
+All custom scripts in LARBS are located in \f(CW~/.local/bin/\fP.
+Actually, this should go without saying, but \fIeverything\fP here can easily be changed.
+Below in this document, there is information about where to change programs/components.
+.PP
+Additionally, while this isn't a part of the desktop environment, the default editing mode in the shell is using vi bindings.
+This setting can be changed if you don't like it by deleting or commenting out the contents of \f(CW~/.config/shell/inputrc\fP.
+.HEADING 2 "The Status Bar"
+.PP
+To the left, you'll see the numbers of your current workspace/tag(s).
+On the right, you'll see various system status notifiers, the date, volume, even music and local weather if possible, etc.
+Each module on the right of the statusbar is a script located in \f(CW~/.local/bin/statusbar/\fP.
+You can see what they do and modify them from there.
+I'm sure you can figure it out.
+You can also right click on the module to see what it does.
+.PP
+The program dwmblocks is what is run to generate the statusbar from those scripts.
+You can edit its config/source code in \f(CW~/.local/src/dwmblocks/\fP to tell it what scripts/commands you want it to display.
+.HEADING 1 "Key Bindings"
+.PP
+The window manager dwm abstractly orders all of your windows into a stack from most important to least based on when you last manipulated it.
+dwm is an easy to use window manager, but you should understand that it makes use of that stack layout.
+.HEADING 2 "Common"
+.LI
+.ITEM
+\f(CWMod+Enter\fP \(en Spawn terminal (the default terminal is \f(CWst\fP)
+.ITEM
+\f(CWMod+q\fP \(en Close window
+.ITEM
+\f(CWModShift+q\fP \(en Close window
+.ITEM
+\f(CWMod+d\fP \(en dmenu (For running commands or programs without shortcuts)
+.ITEM
+\f(CWModShift+d\fP \(en dmenu
+.ITEM
+\f(CWMod+j\fP \(en Cycle thru windows by their stack order
+.ITEM
+\f(CWMod+k\fP \(en Cycle thru windows by reverse stack order
+.ITEM
+\f(CWMod+Space\fP \(en Make selected window the master (or switch master with 2nd)
+.ITEM
+\f(CWMod+h\fP \(en Decrease width of master window
+.ITEM
+\f(CWMod+l\fP \(en Increase width of master window
+.ITEM
+\f(CWMod+z\fP \(en Increase gaps (may also hold \f(CWMod\fP and scroll mouse)
+.ITEM
+\f(CWMod+x\fP \(en Decrease gaps (may also hold \f(CWMod\fP and scroll mouse)
+.ITEM
+\f(CWMod+a\fP \(en Toggle gaps
+.ITEM
+\f(CWModShift+a\fP \(en Default gaps
+.ITEM
+\f(CWModShift+Space\fP \(en Make focused window float
+.ITEM
+\f(CWMod+s\fP \(en Toggle “sticky” window (follows you from tag to tag)
+.ITEM
+\f(CWMod+b\fP \(en Toggle statusbar (may also middle click on desktop)
+.LIST OFF
+.HEADING 2 "Layout & Navigation"
+.LI
+.ITEM
+\f(CWMod+y\fP \(en Fibonacci spiral mode (active by default)
+.ITEM
+\f(CWModShift+y\fP \(en Tiling mode
+.ITEM
+\f(CWMod+u\fP \(en Dwindle mode
+.ITEM
+\f(CWModShift+u\fP \(en Centeredmaster mode
+.ITEM
+\f(CWMod+f\fP \(en Toggle fullscreen
+.ITEM
+\f(CWMod+o\fP \(en Increasethe number of master windows
+.ITEM
+\f(CWModShift+o\fP \(en Decrease the number of master windows
+.ITEM
+\f(CWMod+backslash\fP \(en Go to previous tag
+.ITEM
+\f(CWMod+g\fP \(en Go to left tag
+.ITEM
+\f(CWMod+page_up\fP \(en Go to left tag
+.ITEM
+\f(CWModShift+g\fP \(en Send focused window to left tag
+.ITEM
+\f(CWModShift+page_up\fP \(en Send focused window to left tag
+.ITEM
+\f(CWMod+semicolon\fP \(en Go to right tag
+.ITEM
+\f(CWMod+page_down\fP \(en Go to right tag
+.ITEM
+\f(CWModShift+semicolon\fP \(en Send focused window to right tag
+.ITEM
+\f(CWModShift+page_down\fP \(en Send focused window to right tag
+.ITEM
+\f(CWMod+left\fP \(en Go to left display
+.ITEM
+\f(CWMod+right\fP \(en Go to right display
+.ITEM
+\f(CWModShift+left\fP \(en Move window to left display
+.ITEM
+\f(CWModShift+right\fP \(en Move window to right display
+.LIST OFF
+.HEADING 2 "Basic Programs"
+.LI
+.ITEM
+\f(CWMod+r\fP \(en lf (terminal-based file browser/manager)
+.ITEM
+\f(CWModShift+b\fP \(en Web browser (Zen by default)
+.ITEM
+\f(CWModShift+v\fP \(en Vesktop (better discord client)
+.ITEM
+\f(CWMod+t\fP \(en Thunar (gui file explorer)
+.ITEM
+\f(CWModShift+w\fP \(en nmtui (for connecting to wireless internet)
+.ITEM
+\f(CWModShift+Enter\fP \(en Toggle dropdown terminal
+.ITEM
+\f(CWMod+m\fP \(en Spawn ncspot (terminal-based spotify client)
+.LIST OFF
+.HEADING 2 "System"
+.LI
+.ITEM
+\f(CWMod+backspace\fP \(enChoose to lock screen, logout, shutdown, reboot, etc.
+.ITEM
+\f(CWMod+F3\fP \(enSelect screen/display to use
+.ITEM
+\f(CWMod+F4\fP \(enpulsemixer (audio control)
+.ITEM
+\f(CWMod+F5\fP \(enReload xresources
+.ITEM
+\f(CWMod+F9\fP \(enMount a USB drive/hard drive or Android
+.ITEM
+\f(CWMod+F10\fP \(enUnmount a non-essential drive or Android
+.ITEM
+\f(CWMod+F11\fP \(enView webcam
+.ITEM
+\f(CWMod+F12\fP \(enRerun keyboard mapping scripts if new keyboard is attached
+.ITEM
+\f(CWMod+insert\fP \(enShow contents of clipboard/primary selection
+.ITEM
+\f(CWMod+print\fP \(enTake a screenshot
+.ITEM
+\f(CWModShift+print\fP \(enSelect area to screenshot
+.LIST OFF
+.HEADING 2 "Audio"
+.LI
+.ITEM
+\f(CWMod+minus\fP \(en Decrease volume 5%
+.ITEM
+\f(CWModShift+minus\fP \(en Decrease volume 15%
+.ITEM
+\f(CWMod+equal\fP \(en Increase volume 5%
+.ITEM
+\f(CWModShift+equal\fP \(en Increase volume 15%
+.ITEM
+\f(CWModShift+m\fP \(en Mute all audio
+.LIST OFF
+.HEADING 2 "Other buttons"
+.PP
+I've mapped those extra buttons that some keyboards have (play and pause
+buttons, screen brightness, email, web browsing buttons, etc.) to what you
+would expect.
+.HEADING 1 "Configuration"
+.PP
+Dotfiles/settings files are located in \f(CW~/.config/\fP.
+.PP
+Suckless programs, dwm (the window manager), st (the terminal) and dmenu among others do not have traditional config files, but have their source code location in \f(CW~/.local/src/\fP (press \f(CWrr\fP to jump to that directory).
+There you can modify their \f(CWconfig.h\fP files or other source code, then \f(CWsudo make install\fP to reinstall.
+.PP
+vim is set to automatically recompile and install these programs whenever you save changes to any \f(CWconfig.h\fP file
+(compilation will be nearly instantaneous).
+You'll have to restart the program to see its effects obviously.
+.HEADING 1 "Housekeeping"
+.HEADING 2 "Nvidia users"
+Don't forget to install kernel modules;
+.PP
+\f(CW# yay -S nvidia-dkms\fP
+.HEADING 2 "Browser config"
+My user.js for gecko-based browsers;
+.PP
+.PDF_WWW_LINK "https://github.com/pm-lack/pm-betterfox.js" "pm-betterfox.js"
+.HEADING 2 "The end"
+.PDF_WWW_LINK "http://lackthereof.xyz" "lackthereof.xyz"
