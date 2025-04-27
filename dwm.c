@@ -893,7 +893,9 @@ drawbar(Monitor *m)
 		return;
 
 	/* draw status first so it can be overdrawn by tags later */
-	if (m == selmon) { /* status is only drawn on selected monitor */
+	/* if (m == selmon) { status is only drawn on selected monitor */
+	if (m == selmon || 1) { /* status is only drawn on selected monitor */
+
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
 		drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
@@ -974,8 +976,6 @@ expose(XEvent *e)
 void
 focus(Client *c)
 {
-	if (!c || !ISVISIBLE(c))
-		c = getpointerclient();	
 	if (!c || !ISVISIBLE(c)) {
 		for (c = selmon->stack; c && (!ISVISIBLE(c) || (c->issticky && !selmon->sel->issticky)); c = c->snext);
 
@@ -1067,7 +1067,6 @@ getpointerclient(void)
 	XQueryPointer(dpy, root, &dummy, &win, &di, &di, &di, &di, &dui);
 	return wintoclient(win);
 }
-
 
 #ifndef __OpenBSD__
 int
@@ -2294,18 +2293,26 @@ unmanage(Client *c, int destroyed)
 		free(s->swallowing);
 		s->swallowing = NULL;
 		arrange(m);
-        focus(NULL);
+		if (selmon->sel == c)
+			selmon->sel = NULL;
+		Client *p = getpointerclient();
+		if (p)
+			focus(p);
+		else
+			focus(NULL);
 		return;
 	}
 
 	detach(c);
 	detachstack(c);
+	if (selmon->sel == c)
+		selmon->sel = NULL;  /* <- important */
 	if (!destroyed) {
 		wc.border_width = c->oldbw;
-		XGrabServer(dpy); /* avoid race conditions */
+		XGrabServer(dpy);
 		XSetErrorHandler(xerrordummy);
 		XSelectInput(dpy, c->win, NoEventMask);
-		XConfigureWindow(dpy, c->win, CWBorderWidth, &wc); /* restore border */
+		XConfigureWindow(dpy, c->win, CWBorderWidth, &wc);
 		XUngrabButton(dpy, AnyButton, AnyModifier, c->win);
 		setclientstate(c, WithdrawnState);
 		XSync(dpy, False);
@@ -2315,11 +2322,17 @@ unmanage(Client *c, int destroyed)
 	free(c);
 
 	if (!s) {
-		updateclientlist();
 		arrange(m);
-		focus(NULL);
+		updateclientlist();
+		Client *p = getpointerclient();
+		if (p)
+			focus(p);
+		else
+			focus(NULL);
 	}
 }
+
+
 
 void
 unmapnotify(XEvent *e)
@@ -2524,11 +2537,13 @@ updatesizehints(Client *c)
 void
 updatestatus(void)
 {
+	Monitor* m;
 	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext)))
 		strcpy(stext, "dwm-"VERSION);
 	else
 		copyvalidchars(stext, rawstext);
-	drawbar(selmon);
+	for(m = mons; m; m = m->next)
+		drawbar(m);
 }
 
 void
