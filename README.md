@@ -3,7 +3,8 @@
 
 # Credit
 - [placemouse](https://github.com/bakkeby/patches/wiki/placemouse) 
-- [focusfollowmouse](https://github.com/bakkeby/patches/wiki/focusfollowmouse) (some people find this controversial, so if you don't want this replace dwm.c with dwm.c.bak)
+- [focusfollowmouse](https://github.com/bakkeby/patches/wiki/focusfollowmouse) (modified to only follow mouse focus after closing a window)
+- [statusallmons](https://dwm.suckless.org/patches/statusallmons/) 
 
  [Courtesys to Luke Smith](https://github.com/lukesmithxyz/dwm)
 - [statuscmd](https://dwm.suckless.org/patches/statuscmd/) 
