@@ -209,10 +209,6 @@ vim is set to automatically recompile and install these programs whenever you sa
 (compilation will be nearly instantaneous).
 You'll have to restart the program to see its effects obviously.
 .HEADING 1 "Housekeeping"
-.HEADING 2 "Nvidia users"
-Don't forget to install kernel modules;
-.PP
-\f(CW# yay -S nvidia-dkms\fP
 .HEADING 2 "Browser config"
 My user.js for gecko-based browsers;
 .PP
