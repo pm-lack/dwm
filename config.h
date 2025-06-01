@@ -227,7 +227,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_space,      togglefloating,         {0} },
 
 	{ MODKEY,			XK_Print,      spawn,                  SHCMD("maim -u ~/Pictures/$(date '+%y%m%d-%H%M-%S').png") },
-	{ MODKEY|ShiftMask,		XK_Print,      spawn,                  SHCMD("maim -s -u ~/Pictures/$(date '+%y%m%d-%H%M-%S').png") },
+	{ MODKEY|ShiftMask,		XK_Print,      spawn,                  SHCMD("maim -s --noopengl -u ~/Pictures/$(date '+%y%m%d-%H%M-%S').png") },
 
 	{ 0, XF86XK_AudioMute,                         spawn,                  SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioRaiseVolume,                  spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+; kill -44 $(pidof dwmblocks)") },
